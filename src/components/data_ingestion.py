@@ -22,7 +22,7 @@ class DataIngestion:
     def initiate_data_ingestion(self):
         logging.info('Data Ingestion methods Starts')
         try:
-            df=pd.read_csv(os.path.join('Notebooks/data','Concrete_Data.csv'))
+            df = pd.read_excel(r"C:\Users\lokas\Desktop\Projects\Cement Strength Prediction\Notebooks\data\Concrete_Data.xls")
             logging.info('Dataset read as pandas Dataframe')
 
             os.makedirs(os.path.dirname(self.ingestion_config.raw_data_path),exist_ok=True)
@@ -46,6 +46,3 @@ class DataIngestion:
         except Exception as e:
             logging.info('Exception occured at Data Ingestion stage')
             raise CustomException(e,sys)
-
-
-

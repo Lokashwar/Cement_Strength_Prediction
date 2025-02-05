@@ -24,7 +24,7 @@ class DataTransformation:
         try:
             logging.info('Data Transformation initiated')
             # Define which columns should be ordinal-encoded and which should be scaled
-            numerical_cols = ['Cement', 'Blast Furnace', 'Fly Ash', 'Water','Superplasticizer','Coarse Aggregate','Fine Aggregate','Age','Concrete compressive strength']
+            numerical_cols = ['Cement', 'Blast Furnace Slag', 'Fly Ash', 'Water','Superplasticizer','Coarse Aggregate','Fine Aggregate','Age']
             
             logging.info('Pipeline Initiated')
 
@@ -49,7 +49,7 @@ class DataTransformation:
             logging.info("Error in Data Transformation")
             raise CustomException(e,sys)
         
-    def initaite_data_transformation(self,train_path,test_path):
+    def initiate_data_transformation(self,train_path,test_path):
         try:
             # Reading train and test data
             train_df = pd.read_csv(train_path)
@@ -63,7 +63,7 @@ class DataTransformation:
 
             preprocessing_obj = self.get_data_transformation_object()
 
-            target_column_name = 'price'
+            target_column_name = 'Concrete compressive strength'
             drop_columns = [target_column_name]
 
             input_feature_train_df = train_df.drop(columns=drop_columns,axis=1)

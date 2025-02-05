@@ -1,0 +1,53 @@
+<html>
+<body>
+<form action="{{url_for('predict_datapoint')}}" method="POST">
+    <div class="form-group">
+        <label for="Cement">Cement:</label>
+        <input type="text" id="Cement" name="Cement" placeholder="Enter Cement">
+    </div>
+
+    <div class="form-group">
+        <label for="Blast_Furnace">Blast_Furnace:</label>
+        <input type="text" id="Blast_Furnace" name="Blast_Furnace" placeholder="Enter Blast_Furnace">
+    </div>
+
+    <div class="form-group">  
+        <label for="Fly_Ash">Fly_Ash:</label>
+        <input type="text" id="Fly_Ash" name="Fly_Ash" placeholder="Enter Fly_Ash">
+    </div>
+    
+    <div class="form-group">
+        <label for="Water">Water:</label>
+        <input type="text" id="Water" name="Water" placeholder="Enter Water">
+    </div>
+  
+    <div class="form-group">
+        <label for="Superplasticizer">Superplasticizer:</label>
+        <input type="text" id="Superplasticizer" name="Superplasticizer" placeholder="Enter Superplasticizer">
+    </div>
+  
+    <div class="form-group">
+        <label for="Coarse_Aggregate">Coarse_Aggregate:</label>
+        <input type="text" id="Coarse_Aggregate" name="Coarse_Aggregate" placeholder="Enter Coarse_Aggregate">
+    </div>         
+  
+    <div class="form-group">
+      <label for="Fine_Aggregate">Fine_Aggregate:</label>
+      <input type="text" id="Fine_Aggregate" name="Fine_Aggregate" placeholder="Enter Fine_Aggregate">
+  </div>       
+
+  <div class="form-group">
+    <label for="Age">Age:</label>
+    <input type="text" id="Age" name="Age" placeholder="Enter Age">
+  </div>       
+
+  <div class="form-group">
+    <label for="Concrete_compressive_strength">Concrete_compressive_strength:</label>
+    <input type="text" id="Concrete_compressive_strength" name="Concrete_compressive_strength" placeholder="Enter Concrete_compressive_strength">
+  </div>       
+
+<div style="clear:both;"></div>
+  <input type="submit" value="Submit">
+</form>
+</body>
+</html>
