@@ -38,7 +38,6 @@ class CustomData:
                  Coarse_Aggregate:float,
                  Fine_Aggregate	:float,
                  Age:float,
-                 Concrete_compressive_strength:float
                  ):
         
         self.Cement=Cement
@@ -49,24 +48,33 @@ class CustomData:
         self.Coarse_Aggregate=Coarse_Aggregate
         self.Fine_Aggregate=Fine_Aggregate
         self.Age = Age
-        self.Concrete_compressive_strength=Concrete_compressive_strength
 
     def get_data_as_dataframe(self):
         try:
             custom_data_input_dict = {
-                'Cement':[self.Cement],
-                'Blast_Furnace':[self.Blast_Furnace],
-                'Fly_Ash':[self.Fly_Ash],
-                'Water':[self.Water],
-                'Superplasticizer':[self.Superplasticizer],
-                'Coarse_Aggregate':[self.Coarse_Aggregate],
-                'Fine_Aggregate':[self.Fine_Aggregate],
-                'Age':[self.Age],
-                'Concrete_compressive_strength':[self.Concrete_compressive_strength]
+                'Cement': [self.Cement],
+                'Blast_Furnace': [self.Blast_Furnace],
+                'Fly_Ash': [self.Fly_Ash],
+                'Water': [self.Water],
+                'Superplasticizer': [self.Superplasticizer],
+                'Coarse_Aggregate': [self.Coarse_Aggregate],
+                'Fine_Aggregate': [self.Fine_Aggregate],
+                'Age': [self.Age],
             }
             df = pd.DataFrame(custom_data_input_dict)
-            logging.info('Dataframe Gathered')
+
+            rename_map = {
+                "Blast_Furnace": "Blast Furnace Slag",
+                "Fly_Ash": "Fly Ash",
+                "Coarse_Aggregate": "Coarse Aggregate",
+                "Fine_Aggregate": "Fine Aggregate"
+            }
+            df = df.rename(columns=rename_map)
+
+            logging.info('Dataframe Gathered and columns renamed to match training')
             return df
+        
         except Exception as e:
-            logging.info('Exception Occured in prediction pipeline')
-            raise CustomException(e,sys)
+            logging.info('Exception Occured in get_data_as_dataframe()')
+            raise CustomException(e, sys)
+
